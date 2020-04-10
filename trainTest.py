@@ -5,19 +5,28 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 
 
+#Run these 5 csv files for linear regression testing
+
+France_CSV = 'France.csv'
+Germany_CSV = 'Germany.csv'
+USA_CSV = 'USA.csv'
+Italy_CSV = 'Italy.csv'
+Spain_CSV = 'Spain.csv'
+
 x = []
 y = []
 
 count = 0
 newDeathPercentage = 0
 
+#run whichever file you need to run here
 
-with open('deathData.csv','r') as csvfile:
+with open(Spain_CSV,'r') as csvfile:
     plots = csv.reader(csvfile, delimiter=',')
     for row in plots:
         if(count != 0 and row != []):
             x.append(count)
-            newDeathPercentage = (int(row[1]))
+            newDeathPercentage = int(row[1])
             y.append(newDeathPercentage)
         count = count + 1
 
